@@ -31,10 +31,16 @@ function setup() {
   }
 
   //create 3rd row of plinko objects
-
+  for (var j = 75; j <=width-10; j=j+50) 
+  {
+    plinkos.push(new Plinko(j,275));
+  }
   
   //create 4th row of plinko objects
-
+  for (var j = 50; j <=width-10; j=j+50) 
+  {
+    plinkos.push(new Plinko(j,375));
+  }
 
   //create particle objects
   
@@ -62,4 +68,11 @@ function draw() {
 
   //display the paricles 
 
+  if(frameCount%60===0){
+    particles.push(new Particle(random(width/2-10,width/2+10),10,10))
+  }
+  //display the divisions
+  for (var k = 0; k < particles.length; k++) {
+    particles[k].display();
+  }
 }
